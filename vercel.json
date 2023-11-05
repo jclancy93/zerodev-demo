@@ -6,6 +6,10 @@
           {
             "key": "Content-Type",
             "value": "application/json"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json"
           }
         ]
       },
@@ -14,6 +18,10 @@
         "headers": [
           {
             "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "content-type",
             "value": "application/json"
           }
         ]
