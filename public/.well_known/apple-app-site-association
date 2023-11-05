@@ -3,7 +3,7 @@
         "apps": [],
         "details": [
             {
-                "appID": "KRFQMTJC3R.com.anonymous.selfbank-ts",
+                "appIDs": ["KRFQMTJC3R.com.anonymous.selfbank-ts"],
                 "paths": [ "*" ]
             }
         ]
