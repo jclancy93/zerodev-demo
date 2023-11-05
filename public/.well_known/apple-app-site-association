@@ -1,8 +1,6 @@
 {
-    "supportsTablet": true,
-    "associatedDomains": [
-        "applinks:zerodev-demo.vercel.app",
-        "webcredentials:zerodev-demo.vercel.app?mode=developer"
-    ],
-    "bundleIdentifier": "KRFQMTJC3R.com.anonymous.selfbank-ts"
-}
+     "webcredentials": {
+        "apps": [ "KRFQMTJC3R.com.anonymous.selfbank-ts" ]
+     }
+  }
+  
