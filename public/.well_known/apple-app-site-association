@@ -1,0 +1,8 @@
+{
+    "supportsTablet": true,
+    "associatedDomains": [
+        "applinks:zerodev-demo.vercel.app",
+        "webcredentials:zerodev-demo.vercel.app?mode=developer"
+    ],
+    "bundleIdentifier": "com.anonymous.selfbank-ts"
+}
