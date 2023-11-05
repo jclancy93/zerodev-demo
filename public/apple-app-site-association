@@ -1,1 +1,16 @@
-{"webcredentials": {"apps": [ "KRFQMTJC3R.com.anonymous.selfbank-ts" ]}}
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "KRFQMTJC3R.com.anonymous.selfbank-ts",
+                "paths": [ "*" ]
+            }
+        ]
+    },
+    "webcredentials": {
+        "apps": [
+            "KRFQMTJC3R.com.anonymous.selfbank-ts" 
+        ]
+    }
+}
