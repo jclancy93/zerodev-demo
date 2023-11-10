@@ -1,27 +1,39 @@
-import { Button, Flex } from "@mantine/core";
-import { chains, projectId } from "./ZeroDevWrapper";
-import { useConnect } from "wagmi";
 import { ZeroDevConnector } from "@zerodev/wagmi";
 import { createPasskeyOwner, getPasskeyOwner } from "@zerodev/sdk/passkey";
-import { useState } from "react";
+import { useConnect, configureChains, useAccount } from "wagmi";
+import { base } from "wagmi/chains";
+import { publicProvider } from "wagmi/providers/public";
 
-function Passkey() {
-  const [loginLoading, setLoginLoading] = useState(false);
-  const [registerLoading, setRegisterLoading] = useState(false);
+export const projectId = "b5486fa4-e3d9-450b-8428-646e757c10f6";
 
+export const { chains } = configureChains(
+  // make sure to specify a chain that corresponds to your ZeroDev project
+  [base],
+  [publicProvider()]
+);
+
+export default function Passkey() {
   const { connect } = useConnect();
+  const { isConnected, address } = useAccount();
 
-  // const handleEnter = async () => {
-  //   connect({
-  //     connector: new ZeroDevConnector({chains, options: {
-  //       projectId,
-  //       owner: await getOrCreatePasskeyOwner({name: 'ZeroDev', projectId})
-  //     }})
-  //   })
-  // }
+  console.log({ isConnected, address });
+
+  const handleRegister = async () => {
+    connect({
+      connector: new ZeroDevConnector({
+        chains,
+        options: {
+          projectId,
+          owner: await createPasskeyOwner({
+            name: "Name of your app",
+            projectId,
+          }),
+        },
+      }),
+    });
+  };
 
   const handleLogin = async () => {
-    setLoginLoading(true);
     connect({
       connector: new ZeroDevConnector({
         chains,
@@ -31,46 +43,12 @@ function Passkey() {
         },
       }),
     });
-    setTimeout(() => setLoginLoading(false), 5000);
-  };
-
-  const handleRegister = async () => {
-    setRegisterLoading(true);
-    connect({
-      connector: new ZeroDevConnector({
-        chains,
-        options: {
-          projectId,
-          owner: await createPasskeyOwner({ name: "ZeroDev", projectId }),
-        },
-      }),
-    });
-    setTimeout(() => setRegisterLoading(false), 5000);
   };
 
   return (
-    <Flex gap={"lg"} style={{ marginTop: "200px" }}>
-      <Button loading={loginLoading} size={"lg"} onClick={handleLogin}>
-        Login
-      </Button>
-      <Button
-        loading={registerLoading}
-        size={"lg"}
-        onClick={handleRegister}
-        variant={"outline"}
-      >
-        Register
-      </Button>
-      {/* <Button
-            loading={false}
-            size={'lg'}
-            onClick={handleEnter}
-          >
-            Enter
-          </Button> */}
-    </Flex>
+    <div>
+      <button onClick={handleRegister}> Register </button>
+      <button onClick={handleLogin}> Login </button>
+    </div>
   );
 }
-
-export default Passkey;
-// export {}
