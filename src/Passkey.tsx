@@ -25,7 +25,7 @@ export default function Passkey() {
         options: {
           projectId,
           owner: await createPasskeyOwner({
-            name: "Name of your app",
+            name: "SelfBank",
             projectId,
           }),
         },
