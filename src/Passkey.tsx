@@ -47,8 +47,14 @@ export default function Passkey() {
 
   return (
     <div style={{ marginTop: "200px" }}>
-      <button onClick={handleRegister}> Register </button>
-      <button onClick={handleLogin}> Login </button>
+      {isConnected ? (
+        <>
+          <button onClick={handleRegister}> Register </button>
+          <button onClick={handleLogin}> Login </button>
+        </>
+      ) : (
+        <span>{address}</span>
+      )}
     </div>
   );
 }
