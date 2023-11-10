@@ -46,7 +46,7 @@ export default function Passkey() {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "200px" }}>
       <button onClick={handleRegister}> Register </button>
       <button onClick={handleLogin}> Login </button>
     </div>
