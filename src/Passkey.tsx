@@ -47,7 +47,7 @@ export default function Passkey() {
 
   return (
     <div style={{ marginTop: "200px" }}>
-      {isConnected ? (
+      {!isConnected ? (
         <>
           <button onClick={handleRegister}> Register </button>
           <button onClick={handleLogin}> Login </button>
