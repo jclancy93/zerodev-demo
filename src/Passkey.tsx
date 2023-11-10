@@ -4,7 +4,7 @@ import { useConnect, configureChains, useAccount } from "wagmi";
 import { base } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
-export const projectId = "0e94358f-2baf-4766-baf6-7808a46eb2b5";
+export const projectId = "b5486fa4-e3d9-450b-8428-646e757c10f6";
 
 export const { chains } = configureChains(
   // make sure to specify a chain that corresponds to your ZeroDev project
@@ -25,7 +25,7 @@ export default function Passkey() {
         options: {
           projectId,
           owner: await createPasskeyOwner({
-            name: "SelfBank",
+            name: "Name of your app",
             projectId,
           }),
         },
