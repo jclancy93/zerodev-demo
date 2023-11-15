@@ -10,6 +10,10 @@ import { SponsoredGasExample } from "./examples/SponsoredGasExample";
 import { BatchExample } from "./examples/BatchExample";
 import Passkey from "./Passkey";
 
+import { TamaguiProvider } from "tamagui";
+
+import config from "./tamagui.config";
+
 const links = [
   {
     path: "/gas-free",
@@ -35,7 +39,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <Passkey />;
+  return (
+    <TamaguiProvider config={config}>
+      <Passkey />
+    </TamaguiProvider>
+  );
 }
 
 export default App;

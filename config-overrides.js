@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const { TamaguiPlugin } = require("tamagui-loader");
 
 module.exports = function override(config) {
   const fallback = config.resolve.fallback || {};
@@ -10,7 +11,7 @@ module.exports = function override(config) {
     https: require.resolve("https-browserify"),
     os: require.resolve("os-browserify"),
     url: require.resolve("url"),
-    zlib: require.resolve('browserify-zlib'),
+    zlib: require.resolve("browserify-zlib"),
   });
   // Object.assign(fallback, {
   //   crypto: false,
@@ -27,6 +28,10 @@ module.exports = function override(config) {
     new webpack.ProvidePlugin({
       process: "process/browser",
       Buffer: ["buffer", "Buffer"],
+    }),
+    new TamaguiPlugin({
+      config: "./src/tamagui.config.ts",
+      components: ["tamagui"], // matching the yarn add you chose above
     }),
   ]);
   config.ignoreWarnings = [/Failed to parse source map/];
